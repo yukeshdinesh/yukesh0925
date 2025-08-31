@@ -1,8 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven-3.9.6'   // Install Maven in Jenkins global tools
-        jdk 'jdk17'           // Install JDK 17 in Jenkins global tools
+        maven 'Maven'   // Install Maven in Jenkins global tools
+        jdk 'default'           // Install JDK 17 in Jenkins global tools
     }
     stages {
         stage('Checkout') {
@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Report') {
